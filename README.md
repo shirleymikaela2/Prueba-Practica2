@@ -83,21 +83,27 @@ java -cp out Pruebas
 
 Cada integrante debe registrar cambios reales en su rama. Antes de fusionar futuras pull requests, otro integrante debe revisar el trabajo. La PR #2 fue fusionada; en su captura no aparecía un revisor asignado.
 
-## 8. Evidencias y resultados
+## 8. Preguntas para la defensa del grupo
 
-**Por completar cuando el proyecto esté integrado y se ejecuten las pruebas en el repositorio del grupo:**
+### 1. ¿Por qué no es correcto modificar la matrícula de un nodo sin reposicionarlo en un ABB?
 
-- [ ] Captura de la jerarquía con 9 unidades, 5 hojas y altura 3.
-- [ ] Captura del inorden original y rechazo de matrícula duplicada 40.
-- [ ] Captura de eliminación de 20, 60 y 70 e inorden final.
-- [ ] Captura de la representación hijo izquierdo/hermano derecho.
-- [ ] Captura del reporte de auditoría.
-- [ ] Captura del análisis comparativo de búsquedas.
-- [ ] Resultado real de al menos 12 pruebas reproducibles.
-- [ ] Enlaces a ramas, commits y pull requests revisadas.
-- [ ] Hash del commit final de entrega.
+**Respuesta:** Porque la matrícula es la clave que determina la posición del nodo dentro del Árbol Binario de Búsqueda (ABB). Si se modifica directamente, puede romperse la propiedad de ordenamiento. Lo correcto es eliminar el nodo y volver a insertarlo con la nueva matrícula.
 
-Los archivos y capturas se guardarán en la carpeta `evidencias/` cuando estén disponibles.
+### 2. Trace la eliminación de un nodo con dos hijos y explique por qué el sucesor inorden mantiene el orden del ABB.
+
+**Respuesta:** Para eliminar un nodo con dos hijos, se busca su sucesor inorden, que es el menor valor del subárbol derecho. Por ejemplo, al eliminar el nodo 70, su sucesor es 75. Se reemplaza el valor 70 por 75 y después se elimina el nodo 75 de su posición original. Así se conserva el orden del ABB.
+
+### 3. Si ambos árboles tienen n nodos, ¿por qué la búsqueda en uno puede ser O(n) y en otro O(log n)?
+
+**Respuesta:** Porque el tiempo de búsqueda depende de la altura del árbol. En un árbol degenerado, los nodos forman una cadena y la búsqueda puede ser O(n). En uno equilibrado, la altura es aproximadamente logarítmica, por lo que la búsqueda puede ser O(log n). Un ABB normal no se equilibra automáticamente.
+
+### 4. En hijo-izquierdo/hermano-derecho, ¿qué conserva la equivalencia estructural y qué interpretación errónea debe evitarse?
+
+**Respuesta:** Esta representación conserva la jerarquía del árbol general: el enlace izquierdo apunta al primer hijo y el derecho al siguiente hermano. Debe evitarse interpretar al hermano derecho como si fuera un hijo derecho real, porque eso cambiaría el significado de la estructura original.
+
+### 5. ¿Cómo evidencia GitHub que cada integrante implementó y probó una parte real del proyecto?
+
+**Respuesta:** GitHub permite verificar los aportes mediante ramas individuales, commits con cambios identificables y pull requests revisadas por otros integrantes. Además, las pruebas ejecutadas, capturas y documentación permiten demostrar que cada integrante desarrolló y comprobó su parte del proyecto.
 
 ## 9. Consideraciones
 
