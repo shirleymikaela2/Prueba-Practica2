@@ -22,7 +22,7 @@ Implementar y comprobar operaciones recursivas de árboles, validaciones de dato
 - **ABB:** inserción y búsqueda de matrículas, recorridos preorden, inorden y posorden, modificación de nombre y promedio, eliminación de nodos con cero, uno o dos hijos, mínimo, máximo y validación del orden.
 - **Auditoría:** total de unidades, hojas, altura, matrícula mínima y máxima, promedio de estudiantes y validez del ABB.
 - **Análisis:** comparación de búsquedas en dos ABB con igual número de nodos y diferentes alturas.
-- **Pruebas:** casos de aceptación y fallos, ejecutados mediante aserciones.
+- **Pruebas:** casos de aceptación y fallos, ejecutados mediante aserciones cuando se incorpore y ejecute `Pruebas.java`.
 
 ## 4. Organización del código
 
@@ -38,16 +38,13 @@ Todas las clases Java se ubican en una sola carpeta **`src/`**, sin paquetes adi
 | `NodoBinarioUnidad.java` | Representación hijo izquierdo/hermano derecho |
 | `Estudiante.java` | Datos asociados a una matrícula |
 | `ABB.java` | Operaciones y recorridos del ABB |
-| `Pruebas.java` | Pruebas de aceptación reproducibles |
-
-**Estado:** algunas clases todavía deben incorporarse desde las ramas de los integrantes. El funcionamiento completo se verificará cuando estén integradas.
+| `Pruebas.java` | Pruebas de aceptación reproducibles, si está incorporado |
 
 ## 5. Datos iniciales de la práctica
 
 La jerarquía contiene nueve unidades: **UTA** como raíz; sus hijos **FISEI, FCHE y FCS**; dentro de FISEI están **SOFTWARE y TI**; SOFTWARE tiene **3A y 3B** y TI tiene **4A**. El resultado esperado es **9 unidades, 5 hojas y altura 3** (medida en aristas).
 
 Las matrículas se insertan en el orden: `50, 30, 70, 20, 40, 60, 80, 35, 45, 65, 75, 85`.
-
 Se debe rechazar la matrícula duplicada **40**, permitir modificar nombre/promedio sin cambiar la clave y comprobar las eliminaciones **20** (hoja), **60** (un hijo) y **70** (dos hijos, usando sucesor inorden).
 
 **Inorden esperado tras eliminar:** `30, 35, 40, 45, 50, 65, 75, 80, 85`.
@@ -56,48 +53,78 @@ Se debe rechazar la matrícula duplicada **40**, permitir modificar nombre/prome
 
 1. Instalar **JDK 17 o superior** y **Visual Studio Code** con **Extension Pack for Java**.
 2. Abrir en VS Code la carpeta que contiene `src/` y `README.md`.
-3. Cuando todas las clases estén integradas, abrir `src/Main.java` y ejecutar **Run Java**.
-4. Para las pruebas, abrir `src/Pruebas.java` y ejecutar **Run Java**.
+3. Abrir `src/Main.java` y ejecutar **Run Java**.
+4. Si está integrado `src/Pruebas.java`, ejecutarlo para comprobar las pruebas automatizadas.
 
 Alternativamente, desde la terminal, en la raíz del repositorio:
 
 ```powershell
-mkdir out
-javac -encoding UTF-8 -d out -sourcepath src src/Main.java src/Pruebas.java
+javac -encoding UTF-8 -d out src/*.java
 java -cp out Main
-java -cp out Pruebas
 ```
 
-> Si `out` ya existe, omitir `mkdir out`. Si aún faltan clases por fusionar, pueden aparecer errores de compilación hasta completar la integración.
+En PowerShell, si el comodín `src/*.java` no se expande correctamente, compilar desde **Run Java** en VS Code o utilizar la lista de archivos Java explícita.
 
 ## 7. Integrantes y responsabilidades
 
-| Integrante | Rama | Responsabilidad | Evidencia GitHub |
+| Integrante | Rama | Responsabilidad documentada | Evidencia GitHub |
 | --- | --- | --- | --- |
-| Cris | `feature/cris-general` | Nodo y operaciones básicas del árbol general | Pendiente |
-| Andrés | `feature/andres-metricas-conversion` | Métricas de jerarquía y conversión binaria | Pendiente |
-| Lenin | `feature/lenin-abb-basico` | Inserción, búsqueda y recorridos ABB | Pendiente |
-| Josué | `feature/josue-abb-operaciones` | Modificación, eliminación y métricas ABB | Pendiente |
-| Héctor | `feature/hector-pruebas` | Pruebas automatizadas y análisis de búsquedas | Pendiente |
+| Cris | `feature/cris-general` | Nodo y operaciones básicas del árbol general | Por completar |
+| Andrés | `feature/andres-metricas-conversion` | Métricas de jerarquía y conversión binaria | Por completar |
+| Lenin | `feature/lenin-abb-basico` | Inserción, búsqueda y recorridos ABB | Por completar |
+| Josué | `feature/josue-abb-operaciones` | Modificación, eliminación y métricas ABB | Por completar |
+| Héctor | `feature/hector-integracion` | Menú integrador, datos iniciales y pruebas manuales de integración | [PR #6 (aprobada y fusionada)](https://github.com/shirleymikaela2/Prueba-Practica2/pull/6) |
 | Shirley | `feature/shirley-integracion` | Menú, datos iniciales, auditoría y documentación | [PR #2](https://github.com/shirleymikaela2/Prueba-Practica2/pull/2) |
 
-Cada integrante debe registrar cambios reales en su rama. Antes de fusionar futuras pull requests, otro integrante debe revisar el trabajo. La PR #2 fue fusionada; en su captura no aparecía un revisor asignado.
+Los aportes indicados deben corresponder con los commits y las revisiones efectivamente registrados en GitHub. La tabla podrá actualizarse con las PR del resto del grupo.
 
 ## 8. Evidencias y resultados
 
-**Por completar cuando el proyecto esté integrado y se ejecuten las pruebas en el repositorio del grupo:**
+Las siguientes capturas corresponden a **pruebas manuales realizadas en una ejecución local** del sistema. Se emplearon los datos obligatorios de la guía. No sustituyen las doce pruebas automatizadas que debe presentar el equipo.
 
-- [ ] Captura de la jerarquía con 9 unidades, 5 hojas y altura 3.
-- [ ] Captura del inorden original y rechazo de matrícula duplicada 40.
-- [ ] Captura de eliminación de 20, 60 y 70 e inorden final.
-- [ ] Captura de la representación hijo izquierdo/hermano derecho.
-- [ ] Captura del reporte de auditoría.
-- [ ] Captura del análisis comparativo de búsquedas.
-- [ ] Resultado real de al menos 12 pruebas reproducibles.
-- [ ] Enlaces a ramas, commits y pull requests revisadas.
-- [ ] Hash del commit final de entrega.
+### 8.1 Menú principal
 
-Los archivos y capturas se guardarán en la carpeta `evidencias/` cuando estén disponibles.
+El menú permite acceder a la jerarquía académica, el ABB, auditoría, transformación, comparación de búsquedas y casos de aceptación.
+
+![Menú principal del programa](evidencias/menu-principal.png)
+
+### 8.2 Eliminaciones y reglas de integridad
+
+Se rechazó la matrícula duplicada 40; se modificó la matrícula 35 sin cambiar su clave y se eliminaron los nodos **20 (hoja), 60 (un hijo) y 70 (dos hijos)**. También se rechazó la eliminación de FISEI porque tiene descendientes.
+
+El inorden final observado fue **[30, 35, 40, 45, 50, 65, 75, 80, 85]**, con nueve registros.
+
+![Pruebas de eliminación del ABB](evidencias/eliminaciones.png)
+
+### 8.3 Auditoría posterior a las eliminaciones
+
+La auditoría mostró **9 unidades, 5 hojas y altura general 3**. Después de las eliminaciones, el ABB tenía **9 estudiantes**, matrícula mínima **30**, máxima **85**, promedio **7.78** e invariante **VÁLIDA**.
+
+![Auditoría del sistema](evidencias/auditoria.png)
+
+### 8.4 Transformación hijo izquierdo / hermano derecho
+
+Se verificaron, entre otras, las relaciones **UTA → FISEI** (primer hijo), **FISEI → FCHE** y **FCHE → FCS** (hermanos derechos).
+
+![Transformación hijo izquierdo y hermano derecho](evidencias/transformacion.png)
+
+### 8.5 Comparación de búsquedas
+
+Se construyeron dos ABB de 15 nodos, sin autoequilibrio: uno con inserciones ascendentes (altura 14) y otro con inserciones distribuidas (altura 3). Para los identificadores 15 y 16 se observaron **15 comparaciones** en el primero y **4** en el segundo.
+
+![Comparación de búsquedas en ABB](evidencias/comparacion-busquedas.png)
+
+### 8.6 Evidencia de colaboración en GitHub
+
+El aporte de Héctor se registró en la [PR #6](https://github.com/shirleymikaela2/Prueba-Practica2/pull/6), revisada por otro integrante y posteriormente fusionada con `main`.
+
+![Pull Request de Héctor fusionada](evidencias/pull-request-hector.png)
+
+### Pendientes de verificación por el grupo
+
+- [ ] Registrar la ejecución real de **al menos 12 pruebas automatizadas** con sus resultados.
+- [ ] Completar enlaces a commits y pull requests de los demás integrantes.
+- [ ] Anotar el hash del commit final de entrega.
 
 ## 9. Consideraciones
 
